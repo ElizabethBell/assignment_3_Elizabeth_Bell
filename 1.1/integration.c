@@ -5,11 +5,11 @@
 #include <math.h>
 
 double f (double n, int x) {
-  double y;
+  double y=n;
   int i;
   for (i=0; i<x; i++) {
-    y = pow(n, 2.0);
-    y = sqrt(y);
+    y += pow(n, 2.0);
+    //y = sqrt(y);
   }
   return y;
 }
@@ -18,9 +18,9 @@ double integrate (int a, int b, int n, int x) {
   int i;
   double sol;
   
-  for (i=1; i<n; i++) {
+  for (i=0; i<n; i++) {
     double num = a+(i+0.5)*((b-a)/n);
-    sol = f(num, x)*((b-a)/n);
+    sol += f(num, x)*((b-a)/n);
   }
   return sol;
 }
